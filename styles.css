@@ -1,0 +1,417 @@
+:root {
+  --bg-color-first: rgba(2,0,36,1);
+  --bg-color-second: rgb(1, 1, 74);
+
+  --main-color-bg: rgb(39, 47, 61);
+  --main-color-border: rgb(75, 91, 118);
+
+  --light-orange: #E16A54;
+  --strong-orange: #ff4423;
+
+  --border-color: rgb(75, 91, 118);
+  --opposite-font-color: #111;
+  --font-color: #fff;
+
+  --remove-btn-border: var(--main-color-border);
+  --remove-btn-bg-hover: var(--light-orange);
+
+  --switch-bg: var(--main-color-border);
+}
+
+/* .card-button {
+  border-radius: 20px;
+  border: solid 2px rgb(75, 91, 118);
+  height: 40px;
+  background-color: rgb(39, 47, 61);
+  color: white;
+  transition: 150ms ease;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+} */
+
+body.light-mode {
+  --bg-color-first: #e7f5fe;
+  --bg-color-second: #ddf1fc;
+
+  --main-color-bg: #fff;
+  --main-color-border: #cde1ecdd;
+  
+  --font-color: #111;
+  --opposite-font-color: #fff;
+  --border-color: #ddf2ff;
+
+  --remove-btn-border: #d0d0d0;
+  --switch-bg: #b9b9b9;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+    background: linear-gradient(180deg, var(--bg-color-first) 53%, var(--bg-color-second) 100%);
+    padding: 2rem;
+    min-height: 100vh;
+    background-attachment: fixed;
+    font-family: "Roboto";
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--font-color);
+}
+
+#content {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 40px;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+label {
+  font-size: 1.25em;
+}
+
+.radio-input {
+    appearance: none;
+}
+
+.radio-label-button {
+    display: inline-block; /* Allow padding/margins, act like a button */
+    padding: 8px 16px; /* Adjust as needed */
+    border: 2px solid var(--main-color-border); /* Example border */
+    background-color: var(--main-color-bg);
+    border-radius: 30px; /* Rounded corners */
+    cursor: pointer; /* Indicate it's clickable */
+    margin-right: 5px; /* Space between buttons */
+    transition: background-color 0.2s ease, border-color 0.2s ease; /* Smooth transition */
+    text-align: center;
+}
+
+/* 3. Style the label when its corresponding radio IS checked */
+.radio-input:checked + .radio-label-button {
+  /* The '+' selects the label IMMEDIATELY FOLLOWING the checked input */
+  background-color: var(--light-orange); /* Your active/selected color */
+  color: var(--opposite-font-color);
+  border-color: var(--strong-orange); /* Darker border for selected state */
+  /* Add any other styles for the 'selected' button look */
+}
+
+#card-container-ui {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#card-container {
+    width: 93%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card {
+    width: 325px;
+    height: 225px;
+    background-color: var(--main-color-bg);
+    border: 2px solid var(--main-color-border);
+    border-radius: 20px;
+    display: block;
+    padding: 1rem;
+}
+
+.card-info {
+    gap: 1rem;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start
+}
+
+.card-text {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.card-description {
+    width: 100%;
+    font-size: 1rem;
+    overflow-y: hidden;
+    overflow-wrap: break-word;
+}
+
+.extension-img {
+    width: 70px;
+    height: 70px;
+}
+
+.card-controls {
+    margin-top: 25px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.card-button {
+    border-radius: 20px;
+    border: unset;
+    border: 2px solid var(--remove-btn-border);
+    background-color: var(--main-color-bg);
+    height: 40px;
+    transition: 150ms ease;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.remove:hover {
+    background-color: var(--light-orange);
+    border: var(--strong-orange);
+    color: var(--opposite-font-color);
+}
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 35px;
+    height: 20px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--switch-bg);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height:  15px;
+    width: 15px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--light-orange);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--light-orange);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 20px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+/* Settings bar */
+#settings-bar {
+  width: 92%;
+  height: 65px;
+  border-radius: 20px;
+  background-color: var(--main-color-bg);
+  border: 3px solid var(--main-color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+#settings-bar label {
+  outline: none;
+  user-select: none;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url("./assets/images/icon-sun.svg");
+  background-position: center;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-color: var(--main-color-border);
+  padding: 25px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+#settings-bar label.checked {
+  background: url("./assets/images/icon-moon.svg");
+  background-position: center;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-color: var(--main-color-border);
+  padding: 25px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+#settings-bar input {
+  appearance: none;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.crop-logo-icon {
+  width: 50px;
+  height: 60px;
+  overflow: hidden;
+}
+
+.crop-logo-text {
+  width: 130px;
+  height: 60px;
+  overflow: hidden;
+}
+
+#logo-text {
+  filter: brightness(0) invert(1);
+  position: relative;
+  object-fit: none;
+  top: 10px;
+  right: 50px;
+}
+
+#logo-text.light-mode {
+  filter: unset;
+}
+
+#logo-icon {
+  object-fit: none;
+  position: relative;
+  top: 10px;
+}
+
+@media (max-width: 970px) {
+  #card-container-ui {
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  body {
+    padding: 2rem 0;
+  }
+} 
+
+@media (max-width: 560px) {
+  html {
+    font-size: 15px;
+  };
+
+  #content {
+    width: 100vw;
+  }
+
+  body {
+    padding: 2rem 0;
+  }
+
+  #card-container, 
+  #settings-bar, 
+  #card-container-ui {
+    width: 100%;
+  }
+
+  #card-container-ui {
+    width: 100vw;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  #settings-bar {
+    padding: 0.5rem 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .crop-logo-icon {
+    width: 50px;
+    height: 40px;
+    overflow: hidden;
+  }
+  
+  #logo-icon {
+    top: 0;
+    left: 10px;
+  }
+
+  .crop-logo-text {
+    width: 130px;
+    height: 60px;
+    overflow: hidden;
+  }
+
+  #logo-text {
+    top: 10px;
+  }
+}

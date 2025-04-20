@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="./styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon-32x32.png">
+    <title>Browser Extensions</title>
+</head>
+<body>
+    <section id="content">
+        <div id="settings-bar">
+            <div class="flex-container">
+                <div class="crop-logo-icon">
+                    <img id="logo-icon" src="./assets/images/logo.svg">
+                </div>
+                <div class="crop-logo-text">
+                    <img id="logo-text" src="./assets/images/logo.svg">
+                </div>
+            </div>
+            <div class="layout-div">
+                <label for="layout-checkbox"></label>
+                <input id="layout-checkbox" type="checkbox">
+            </div>
+        </div>
+        <div id="card-container-ui">
+            <h1>Extensions List</h1>
+            <div id="card-container-controls">
+                <input id="filter-all" class="radio-input" type="radio" name="filter" checked>
+                <label for="filter-all" class="radio-label-button">All</label>
+                    
+                <input id="filter-active" class="radio-input" type="radio" name="filter">    
+                <label for="filter-active" class="radio-label-button">Active</label>
+
+                <input id="filter-inactive" class="radio-input" type="radio" name="filter">
+                <label for="filter-inactive" class="radio-label-button">Inactive</label>
+            </div>
+        </div>
+        <div id="card-container"></div>
+    </section>  
+    <script src="./scripts.js"></script>
+</body>
+</html>
